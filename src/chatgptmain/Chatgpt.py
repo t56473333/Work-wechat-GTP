@@ -8,19 +8,21 @@ with open("src/config/data.yml","r") as f:
     datayml=yaml.load(f.read(),Loader=yaml.Loader)
     OPENAI_API_KEY=datayml["OPENAI_API_KEY"]
     ChatgptModel=datayml["ChatgptModel"]
+    Temperature=datayml["Temperature"]
 
 class Chatgptwx():
     def __init__(self):
         try:
             self.ChatgptModel = ChatgptModel
             self.OPENAI_API_KEY = OPENAI_API_KEY
+            self.Temperature = Temperature
         except Exception as e:
             print(e)
             return "请检查data.yml"
     #创建一个机器人
     def NewChatgptFromeuser(self,wxuser):
         try:
-            chatbot=Chatbot(OPENAI_API_KEY[wxuser],engine=self.ChatgptModel)
+            chatbot=Chatbot(OPENAI_API_KEY[wxuser],engine=self.ChatgptModel,temperature=self.Temperature)
             return chatbot
         except Exception as Argument:
             print(Argument)
@@ -37,9 +39,3 @@ class Chatgptwx():
             print("向chatgpt发送信息返回失败")
             print(Argument)
             return "error"
-
-
-
-
-
-        

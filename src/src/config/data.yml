@@ -1,0 +1,14 @@
+OPENAI_API_KEY:
+  HuangMingJie: 
+WEIXIN_RECEIVE:
+  Token: 
+  EncodingAESKey: 
+  CorpID: 
+WEIXIN_PUSH:
+  agentid: 
+  secret: 
+  corpid: 
+#   media_id: media_id
+ChatgptModel: davinci
+Temperature: "0.25"
+
